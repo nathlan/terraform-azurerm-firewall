@@ -13,8 +13,8 @@ module "avm_firewall" {
   ip_configurations = { for idx, config in var.ip_configuration : "ipconfig${idx}" => config }
 
   firewall_management_ip_configuration = var.management_ip_configuration
-  firewall_private_ip_ranges           = var.private_ip_ranges != [] ? toset(var.private_ip_ranges) : null
-  firewall_zones                       = var.zones != [] ? toset(var.zones) : null
+  firewall_private_ip_ranges           = length(var.private_ip_ranges) > 0 ? toset(var.private_ip_ranges) : null
+  firewall_zones                       = length(var.zones) > 0 ? toset(var.zones) : null
 
   firewall_virtual_hub = var.virtual_hub
 
