@@ -1,0 +1,22 @@
+# Checkov Configuration for Terraform Modules
+# Security and compliance scanning for Terraform code
+# Usage: checkov -d . --config-file .checkov.yml
+
+# Output settings
+compact: true
+quiet: true
+output: cli
+
+# Scan Terraform code
+framework:
+  - terraform
+
+# Download and scan external modules (alternative to CHECKOV_EXPERIMENTAL_TERRAFORM_MANAGED_MODULES env var)
+download-external-modules: true
+
+# Skip checks with justification
+skip-check:
+  # Registry modules use version constraints, not commit hashes
+  - CKV_TF_1
+
+# For more options: https://www.checkov.io/2.Basics/CLI%20Command%20Reference.html
