@@ -1,6 +1,6 @@
 # Checkov Configuration for Terraform Modules
 # Security and compliance scanning for Terraform code
-# Usage: CHECKOV_EXPERIMENTAL_TERRAFORM_MANAGED_MODULES=True checkov -d . --config-file .checkov.yml
+# Usage: checkov -d . --config-file .checkov.yml
 
 # Output settings
 compact: true
@@ -10,6 +10,9 @@ output: cli
 # Scan Terraform code
 framework:
   - terraform
+
+# Download and scan external modules (alternative to CHECKOV_EXPERIMENTAL_TERRAFORM_MANAGED_MODULES env var)
+download-external-modules: true
 
 # Skip checks with justification
 skip-check:
